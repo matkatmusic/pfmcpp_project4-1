@@ -32,8 +32,123 @@
  Wait for my code review.
  */
 
+#include <stdexcept>
+#include <iostream>
+ 
+struct FloatType
+{
+    float add(float lhs, float rhs);
+    float subtract(float lhs, float rhs);
+    float multiply(float lhs, float rhs);
+    float divide(float lhs, float rhs);
+};
+
+float FloatType::add(float lhs, float rhs)
+{
+    return lhs + rhs;
+}
+
+float FloatType::subtract(float lhs, float rhs)
+{
+    return lhs - rhs;
+}
+
+float FloatType::multiply(float lhs, float rhs)
+{
+    return lhs * rhs;
+}
+
+float FloatType::divide(float lhs, float rhs)
+{
+    if (rhs == 0.0f)
+    {
+        std::cout << "Trying to divide by 0" << std::endl; 
+    }
+    
+    return lhs / rhs;
+}
+
+struct DoubleType
+{
+    double add(double lhs, double rhs);
+    double subtract(double lhs, double rhs);
+    double multiply(double lhs, double rhs);
+    double divide(double lhs, double rhs);
+};
+
+double DoubleType::add(double lhs, double rhs)
+{
+    return lhs + rhs;
+}
+
+double DoubleType::subtract(double lhs, double rhs)
+{
+    return lhs - rhs;
+}
+
+double DoubleType::multiply(double lhs, double rhs)
+{
+    return lhs * rhs;
+}
+
+double DoubleType::divide(double lhs, double rhs)
+{
+    if (rhs == 0.0)
+    {
+        std::cout << "Trying to divide by 0" << std::endl; 
+    }
+    
+    return lhs / rhs;
+}
+
+struct IntType
+{
+    int add(int lhs, int rhs);
+    int subtract(int lhs, int rhs);
+    int multiply(int lhs, int rhs);
+    int divide(int lhs, int rhs);
+};
+
+int IntType::add(int lhs, int rhs)
+{
+    return lhs + rhs;
+}
+
+int IntType::subtract(int lhs, int rhs)
+{
+    return lhs - rhs;
+}
+
+int IntType::multiply(int lhs, int rhs)
+{
+    return lhs * rhs;
+}
+
+int IntType::divide(int lhs, int rhs)
+{
+    if (rhs == 0)
+    {
+        std::cout << "Trying to divide by 0" << std::endl; 
+        return 0;
+    }
+    
+    return lhs / rhs;
+}
+
 #include <iostream>
 int main()
 {
     std::cout << "good to go!" << std::endl;
+    
+    FloatType ft;
+    IntType it; 
+    DoubleType dt;
+    
+    auto result1 = ft.add(13.0f, 15.3f);
+    auto result2 = it.divide(236, 3);
+    auto result3 = dt.multiply(0.2, 20.5);
+    
+    std::cout << "ft.add(13.0f, 15.3f): " << result1 << std::endl;
+    std::cout << "it.divide(236, 3): " << result2 << std::endl;
+    std::cout << "dt.multiply(0.2, 20.5): " << result3 << std::endl;
 }
