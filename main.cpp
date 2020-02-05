@@ -19,11 +19,6 @@ New/This/Pointers/References conclusion
 
 
 
-
-
-
-
-
  /*
  1) Edit your 3 structs so that they own a heap-allocated primitive type without using smart pointers  
          IntType should own a heap-allocated int, for example.
